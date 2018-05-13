@@ -68,5 +68,6 @@ public class HttpStreamDumper implements HttpStreamDumperInterface
 	public void stop()
 	{
 		stopTheStream = true;
+		log.debug("Stop has been requested");
 	}
 }
