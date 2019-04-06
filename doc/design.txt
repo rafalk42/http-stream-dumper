@@ -1,0 +1,62 @@
+[HSD]
+
+Functionality:
+* record a HTTP(S) stream
+ - manual start/stop
+ - scheduled
+* schedule recording
+ - hourly, daily, weekly, monthly
+ - single occurrence
+* browse recordings
+ - tree view (stream as a node with recordings as leafs)
+ - search by text, date, tags
+* play recordings
+ - play, pause, playback speed
+* manage recordings
+ - delete
+ - tag
+* remember playback progress
+ - last position
+ - completeness ?
+* CRUD for schedules
+* CRUD for streams ?
+
+-<[DO]>-
+
+* stream
+ - URL
+ - name
+ - description // optional
+ - tags // optional
+* schedule
+ - recurrence: hourly, daily, weekly, monthly, yearly
+ - start point // depending on the recurrence type
+ - tags // optional
+* recording
+ - stream *ref*
+ - schedule *ref* // optional
+ - [playback progress]
+ - timestamp of start
+ - timestamp of stop
+ - tags // optional
+* playback progress
+ - last position
+
+-<[UI API]>-
+
+base URL: https://hsd.rk42.pl/api/
+GET		/streams						list all streams
+GET		/streams/:id					get stream info
+GET		/streams/:id/recordings			get all recordings of this stream
+GET		/streams/:id/recordings/:id		get single recording info
+?POST	/streams/:id/record				start new recording now
+
+
+GET		/schedules/:id					get schedule info
+GET		/schedules/:id/items			list all items in this schedule
+POST	/schedules/:id/items			add new item to the schedule
+DELETE	/schedules/:id/items/:id		delete item in schedule
+
+GET		/files/:id						get file content
+DELETE	/files/:id						delete file
+

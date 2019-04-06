@@ -2,3 +2,4 @@
 /dumper-service/target/
 /web-app/node_modules
 /web-app/build
+/api-service/target/
